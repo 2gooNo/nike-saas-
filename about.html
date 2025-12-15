@@ -3,9 +3,181 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>About This Page</title>
+    <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    hello about
+    <ul class="navbar">
+      <li class="page"><a class="page" href="./product.html">Product</a></li>
+      <li class="page">About Web</li>
+    </ul>
+
+    <div class="content">
+      <div class="explanation">
+        <div class="tech">
+          <div class="title">
+            <h2 class="title_text">
+              How the Product page is built (product.html)
+            </h2>
+          </div>
+
+          <p>
+            The <strong>Product</strong> page is a single-page layout made with
+            HTML structure, CSS styling, and a small JavaScript file that turns
+            the images into an interactive gallery.
+          </p>
+
+          <div class="tech_specs">
+            <h4 class="tech_specs_heading">1) File structure</h4>
+            <div class="tech_specs_content">
+              <div class="tech_specs_row">
+                <span class="tech_specs_row_title">product.html</span>
+                <span class="tech_specs_row_value">
+                  The page layout and all visible content (navbar, gallery,
+                  product description, and feature cards).
+                </span>
+              </div>
+              <div class="tech_specs_row">
+                <span class="tech_specs_row_title">styles.css</span>
+                <span class="tech_specs_row_value">
+                  Controls the layout (flex/grid), spacing, typography, and how
+                  the gallery/slider looks.
+                </span>
+              </div>
+              <div class="tech_specs_row">
+                <span class="tech_specs_row_title">script.js</span>
+                <span class="tech_specs_row_value">
+                  Adds interactivity: thumbnails, arrow navigation, and
+                  switching colorways.
+                </span>
+              </div>
+              <div class="tech_specs_row">
+                <span class="tech_specs_row_title">Images/</span>
+                <span class="tech_specs_row_value">
+                  Contains the product images. Naming follows the pattern
+                  <code>colorway.index.avif</code> (example:
+                  <code>1.1.avif</code>, <code>1.2.avif</code>, ...
+                  <code>8.9.avif</code>).
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tech_specs">
+            <h4 class="tech_specs_heading">2) product.html layout (HTML)</h4>
+            <div class="tech_specs_content">
+              <div class="tech_specs_row">
+                <span class="tech_specs_row_title">Navbar</span>
+                <span class="tech_specs_row_value">
+                  A simple <code>ul.navbar</code> with two items: the current
+                  page label and a link to the About page.
+                </span>
+              </div>
+              <div class="tech_specs_row">
+                <span class="tech_specs_row_title">Main container</span>
+                <span class="tech_specs_row_value">
+                  Everything is inside <code>div.content</code>, which centers
+                  the page and sets spacing.
+                </span>
+              </div>
+              <div class="tech_specs_row">
+                <span class="tech_specs_row_title">Left side (Gallery)</span>
+                <span class="tech_specs_row_value">
+                  <code>div.pictures</code> contains
+                  <code>div.colPic</code> (vertical thumbnail column),
+                  <code>div.bigPic</code> with the main <code>img.pic</code> and
+                  the two arrow buttons, plus
+                  <code>div.color_pick</code> (clickable colorway swatches).
+                </span>
+              </div>
+              <div class="tech_specs_row">
+                <span class="tech_specs_row_title">Right side (Details)</span>
+                <span class="tech_specs_row_value">
+                  <code>div.explanation</code> includes the title, “engineered
+                  for” icon blocks, “Tech Specs” rows, and a horizontal feature
+                  slider.
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tech_specs">
+            <h4 class="tech_specs_heading">
+              3) How the gallery works (script.js)
+            </h4>
+            <div class="tech_specs_content">
+              <div class="tech_specs_row">
+                <span class="tech_specs_row_title">DOM hooks</span>
+                <span class="tech_specs_row_value">
+                  JavaScript looks for <code>.colPic</code>,
+                  <code>.bigPic .pic</code>, <code>.arrow</code>, and
+                  <code>.color_pick</code>.
+                </span>
+              </div>
+              <div class="tech_specs_row">
+                <span class="tech_specs_row_title">Image naming logic</span>
+                <span class="tech_specs_row_value">
+                  The function <code>imageSrc(colorway, index)</code> builds the
+                  file path: <code>Images/${colorway}.${index}.avif</code>.
+                </span>
+              </div>
+              <div class="tech_specs_row">
+                <span class="tech_specs_row_title">Thumbnails</span>
+                <span class="tech_specs_row_value">
+                  It creates 9 thumbnail images in <code>.colPic</code>.
+                  Hovering a thumbnail (<code>mouseenter</code>) updates the big
+                  image.
+                </span>
+              </div>
+              <div class="tech_specs_row">
+                <span class="tech_specs_row_title">Arrows</span>
+                <span class="tech_specs_row_value">
+                  The buttons have <code>data-direction="prev"</code> and
+                  <code>data-direction="next"</code>. Clicking changes the
+                  current index and wraps around from 1→9 and 9→1.
+                </span>
+              </div>
+              <div class="tech_specs_row">
+                <span class="tech_specs_row_title">Colorways</span>
+                <span class="tech_specs_row_value">
+                  The swatches are generated for colorways 1–8. Clicking a
+                  swatch updates <code>currentColorway</code> and refreshes all
+                  thumbnails and the main image.
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tech_specs">
+            <h4 class="tech_specs_heading">4) Styling (styles.css)</h4>
+            <div class="tech_specs_content">
+              <div class="tech_specs_row">
+                <span class="tech_specs_row_title">Layout</span>
+                <span class="tech_specs_row_value">
+                  Flexbox is used heavily: <code>.content</code> stacks
+                  sections, <code>.pictures</code> places the gallery next to
+                  the color picks, and <code>.engineer</code> aligns the icon
+                  blocks.
+                </span>
+              </div>
+              <div class="tech_specs_row">
+                <span class="tech_specs_row_title">Slider</span>
+                <span class="tech_specs_row_value">
+                  <code>ul.slider</code> uses horizontal scrolling so the
+                  feature cards can be swiped/dragged left-right.
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <p>
+            In short: <strong>product.html</strong> provides the structure,
+            <strong>styles.css</strong> makes it look like a product page, and
+            <strong>script.js</strong> connects the gallery UI to the image
+            files.
+          </p>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
