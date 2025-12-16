@@ -4,20 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Landing page</title>
+    <!-- This page uses one CSS file for layout and one JS file for the image gallery. -->
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <!-- Top navigation (simple menu) -->
     <ul class="navbar">
       <li class="page">Product</li>
       <li class="page"><a class="page" href="./about.html">About web</a></li>
     </ul>
+
+    <!-- Main page container -->
     <div class="content">
+      <!-- Left side: product images (thumbnails + big image + arrows) -->
       <div class="pictures">
         <div class="viewSec">
+          <!-- Thumbnails are created by JavaScript and added inside this div. -->
           <div class="colPic"></div>
           <div class="bigPic">
+            <!-- Main (big) image. JavaScript changes its src when you hover/click. -->
             <img class="pic" src="./Images/1.1.avif" alt="" />
+
+            <!-- Arrow buttons to go to previous/next image -->
             <div class="arrows">
               <button class="arrow" data-direction="prev">
                 <svg
@@ -56,15 +65,22 @@
             </div>
           </div>
         </div>
+
+        <!-- Colorway images (small preview links). JavaScript generates them here. -->
         <div class="color_pick"></div>
       </div>
+
+      <!-- Right side: text and product details -->
       <div class="explanation">
         <div class="tech">
+          <!-- Main title/intro text -->
           <div class="title">
             <h2 class="title_text">
               Our pinnacle race day shoe for Half Marathons & Marathons.
             </h2>
           </div>
+
+          <!-- Small info blocks (icon + short text) -->
           <div class="engineer">
             <div class="engineer_i">
               <div class="icon_con">
@@ -203,6 +219,8 @@
               </div>
             </div>
           </div>
+
+          <!-- Tech specs table-like rows -->
           <div class="tech_specs">
             <h4 class="tech_specs_heading">Tech Specs</h4>
             <div class="tech_specs_content">
@@ -225,6 +243,8 @@
               </div>
             </div>
           </div>
+
+          <!-- Horizontal scroll section (feature cards). Swipe/scroll left and right. -->
           <div class="features_that_perform">
             <section class="features_that_perform_in">
               <div class="features_title">
