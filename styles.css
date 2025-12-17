@@ -169,6 +169,7 @@ ul.navbar > li.page > a.page {
   vertical-align: baseline;
   grid-column: 1 / undefined;
 }
+
 .title_text {
   box-sizing: inherit;
   margin: 0;
@@ -229,6 +230,7 @@ ul.navbar > li.page > a.page {
   justify-content: center;
   padding-bottom: 16px;
 }
+
 .engineer_i_des {
   box-sizing: inherit;
   margin: 0;
